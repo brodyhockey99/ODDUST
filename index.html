@@ -78,7 +78,7 @@
         <div class="popular-games">
             <!-- Retro Bowl game iframe -->
             <div class="game">
-                <iframe src="https://www.retrobowlgame.com/" title="Retro Bowl Game"></iframe>
+                <iframe src="https://retro-bowl-six.vercel.app" title="Retro Bowl Game"></iframe>
             </div>
             <!-- Placeholder for other games -->
             <div class="game"></div>
@@ -87,5 +87,19 @@
             <div class="game"></div>
         </div>
     </div>
+
+    <!-- Add the fullscreen script -->
+    <script>
+      function iffs(href) {
+        const iframe = document.querySelector("iframe");
+        const stl = iframe.style;
+        stl.border = stl.outline = 'none';
+        stl.width = '100vw';
+        stl.height = '100vh';
+        stl.position = 'fixed';
+        stl.left = stl.right = stl.top = stl.bottom = '0';
+        iframe.src = href;
+      }
+    </script>
 </body>
 </html>
