@@ -1,109 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ODDUST, a site for cool games.">
-    <meta name="keywords" content="games, ODDUST, popular games">
-    <meta name="author" content="Your Name">
-    <title>ODDUST</title>
+<html class="no-js" lang="zxx">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Soccer Skills Euro Cup | slope-game.github.io</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="/cleancss/amp.css">
+    <link rel="stylesheet" href="/css/preload.css">
+    <meta name="google-site-verification" content="2rHJ7VRPQvWn6LSai_6iqg6l9tapR7KgqtMHnSXioOQ" />
+    <meta name="robots" content="noindex,nofollow" />
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            background-color: black; /* Set background color to black */
+      .icon-menu {
+        position: fixed;
+        top: 7px;
+        left: 20px;
+        z-index: 6000;
+        background: #fff;
+        justify-content: center;
+        padding: 9px 8px 9px 9px;
+        border-radius: 5px;
+        display: flex;
+        border: solid 2px #cf1f1f;
+      }
+      .close-icon {
+        display: none;
+      }
+      .close-icon img {
+        transform: rotate(180deg);
+      }
+      @media only screen and (min-width: 0px) and (max-width: 1278px) {
+        .close-icon {
+          display: block;
         }
-
-        .header {
-            background: rgba(64, 35, 74, 0.8);
-            padding: 15px;
-            text-align: left;
-            font-size: 20px;
-            font-weight: bold;
-            padding-left: 20px;
-        }
-
-        .content {
-            padding: 20px;
-        }
-
-        h3 {
-            margin-top: 0;
-        }
-
-        .popular-games {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .game {
-            background: rgba(255, 255, 255, 0.8);
-            width: 100px;
-            height: 100px;
-            border-radius: 10px;
-            transition: transform 0.3s;
-            overflow: hidden; /* Hide overflow if the iframe is larger */
-            cursor: pointer; /* Make the game container clickable */
-            text-align: center;
-        }
-
-        .game img {
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
-        .game:hover {
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 600px) {
-            .popular-games {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
+      }
     </style>
-</head>
-<body>
-    <div class="header">
-        ODDUST
-    </div>
-    <div class="content">
-        <h3>Popular Games</h3>
-        <div class="popular-games">
-            <!-- Retro Bowl image -->
-            <div class="game" onclick="openGame('https://retro-bowl-six.vercel.app')">
-                <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/d98547374c4129bf441b754d495e41aa.png" alt="Retro Bowl College"/>
+  </head>
+  <body>
+    <div class="body-bg" style="background-image:url('/img/body-bg.jpg')">
+      <div class="icon-menu" onclick="showMenu(this)">
+        <img src="/img/menu-toggle.svg" alt="#" >
+      </div>
+      <div class="nftmax-smenu">
+        <div class="admin-menu">
+          <div class="logo">
+            <a href="/">
+              <img class="nftmax-logo__main" src="/img/slope-logo.png" alt="Slope Game Logo">
+            </a>
+            <div class="nftmax__sicon close-icon" onclick="hideMenu()">
+              <img src="img/menu-toggle.svg" alt="#">
             </div>
-            <!-- Basketball Stars image -->
-            <div class="game" onclick="openGame('https://advanced-channeler.02.gz-associates.com/?t=tmm-basketball-stars')">
-                <img src="https://cdn.now.gg/apps-content/com.nowgg.h5.pub483.app51022/game-tiles/basketball-stars.jpg" alt="Play Basketball Stars Online"/>
+          </div>
+          <div class="admin-menu__one">
+            <h4 class="admin-menu__title nftmax-scolor">Games</h4>
+            <div class="menu-bar">
+              <ul class="menu-bar__one">
+                <li class="active">
+                  <a href="/list.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">All Games</span>
+                    </span>
+                  </a>
+                  <a href="/soccer-skills-euro-cup.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">Soccer Skills Euro Cup</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
             </div>
-            <!-- Placeholder for other games -->
-            <div class="game" onclick="openGame('https://example-game-link.com')">
-                <img src="https://via.placeholder.com/150" alt="Game Placeholder"/>
-            </div>
-            <div class="game" onclick="openGame('https://example-game-link.com')">
-                <img src="https://via.placeholder.com/150" alt="Game Placeholder"/>
-            </div>
-            <div class="game" onclick="openGame('https://example-game-link.com')">
-                <img src="https://via.placeholder.com/150" alt="Game Placeholder"/>
-            </div>
+          </div>
         </div>
+      </div>
+
+      <section class="main-site">
+        <div class="game-arena" id="game-main">
+          <div class="game-frame">
+            <div style="background-color: rgb(48, 48, 48); height: 100%;">
+              <div class="talpa-splash-container">
+                <div class="talpa-splash-top">
+                  <div>
+                    <div style="--thumb:url(https://rebemanae.github.io/soccer-skills-euro-cup/logo.png);"></div>
+                    <button id="talpa-splash-button" class="BG-splash-button" data-url="https://rebemanae.github.io/soccer-skills-euro-cup/" onclick="playGame()" style="display: block;">Play Now!</button>
+                    <div class="talpa-loader" style="display: none;">Loading...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="game-info">
+            <div class="card-info">
+              <img src="https://rebemanae.github.io/soccer-skills-euro-cup/logo.png" alt="Soccer Skills Euro Cup Logo" width="45" height="45">
+              <h2 class="text-sm sm:text-xl my-auto">Soccer Skills Euro Cup</h2>
+            </div>
+            <div class="btn-full" onclick="fullscreen()">
+              <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><use href="#enterFullscreenIcon"></use></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="ads">
+          <div class="ads_300x600">
+            <div id="ads-container" class="bg-gray-400 ">
+              <div style="min-width: 300px; min-height: 610px; height: 610px; display: block;">
+                <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-7889675448259925" data-ad-slot="2466720932"></ins>
+              </div>
+            </div>
+            <span class="text-center text-sm font-sans">ADVERTISEMENT</span>
+          </div>
+          <div class="ads_728x90">
+            <div id="ads-container" style="min-width: 728px; min-height: 90px; height: 90px;" class="bg-gray-400">
+              <div style="min-width: 728px; min-height: 90px; height: 90px; display: block;">
+                <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-7889675448259925" data-ad-slot="3779802604"></ins>
+              </div>
+            </div>
+            <span class="text-center text-sm font-sans rotate-90 absolute">ADVERTISEMENT</span>
+          </div>
+        </div>
+
+        <div class="description">
+          <div class="welcome-cta">
+            <div class="welcome-cta__heading">
+              <h1 class="welcome-cta__title">Play Soccer Skills Euro Cup Game Unblocked</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="hot-game" id="listhot"></div>
+      </section>
     </div>
 
-    <script>
-        function openGame(url) {
-            window.open(url, '_blank');
-        }
-    </script>
-</body>
+    <script src="/js/custom.js"></script>
+  </body>
 </html>
