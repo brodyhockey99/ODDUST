@@ -49,6 +49,7 @@
             border-radius: 10px;
             transition: transform 0.3s;
             overflow: hidden; /* Hide overflow if the iframe is larger */
+            cursor: pointer; /* Make the game container clickable */
         }
 
         .game iframe {
@@ -67,6 +68,19 @@
                 align-items: center;
             }
         }
+
+        /* Fullscreen styling */
+        .fullscreen iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999; /* Ensure it goes on top */
+        }
     </style>
 </head>
 <body>
@@ -77,7 +91,7 @@
         <h3>Popular Games</h3>
         <div class="popular-games">
             <!-- Retro Bowl game iframe -->
-            <div class="game">
+            <div class="game" onclick="toggleFullscreen(this)">
                 <iframe src="https://retro-bowl-six.vercel.app" title="Retro Bowl Game"></iframe>
             </div>
             <!-- Placeholder for other games -->
@@ -88,18 +102,18 @@
         </div>
     </div>
 
-    <!-- Add the fullscreen script -->
     <script>
-      function iffs(href) {
-        const iframe = document.querySelector("iframe");
-        const stl = iframe.style;
-        stl.border = stl.outline = 'none';
-        stl.width = '100vw';
-        stl.height = '100vh';
-        stl.position = 'fixed';
-        stl.left = stl.right = stl.top = stl.bottom = '0';
-        iframe.src = href;
-      }
+        function toggleFullscreen(element) {
+            const iframe = element.querySelector("iframe");
+
+            // If fullscreen is not enabled, enable it
+            if (!element.classList.contains("fullscreen")) {
+                element.classList.add("fullscreen");
+            } else {
+                // If fullscreen is enabled, reset to normal view
+                element.classList.remove("fullscreen");
+            }
+        }
     </script>
 </body>
 </html>
