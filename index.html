@@ -50,12 +50,14 @@
             transition: transform 0.3s;
             overflow: hidden; /* Hide overflow if the iframe is larger */
             cursor: pointer; /* Make the game container clickable */
+            text-align: center;
         }
 
-        .game iframe {
+        .game img {
             width: 100%;
             height: 100%;
-            border: none;
+            border-radius: 10px;
+            object-fit: cover;
         }
 
         .game:hover {
@@ -81,6 +83,20 @@
             bottom: 0;
             z-index: 9999; /* Ensure it goes on top */
         }
+
+        .iframe-container {
+            position: relative;
+            display: none;
+            width: 100%;
+            height: 100vh;
+            z-index: 1000;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -90,9 +106,9 @@
     <div class="content">
         <h3>Popular Games</h3>
         <div class="popular-games">
-            <!-- Retro Bowl game iframe -->
-            <div class="game" onclick="toggleFullscreen(this)">
-                <iframe src="https://retro-bowl-six.vercel.app" title="Retro Bowl Game"></iframe>
+            <!-- Retro Bowl image -->
+            <div class="game" onclick="openGame()">
+                <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/d98547374c4129bf441b754d495e41aa.png" alt="Retro Bowl College"/>
             </div>
             <!-- Placeholder for other games -->
             <div class="game"></div>
@@ -100,20 +116,31 @@
             <div class="game"></div>
             <div class="game"></div>
         </div>
+
+        <!-- Fullscreen container for Retro Bowl -->
+        <div class="iframe-container" id="gameContainer">
+            <iframe src="https://retro-bowl-six.vercel.app" title="Retro Bowl Game" id="gameIframe"></iframe>
+        </div>
     </div>
 
     <script>
-        function toggleFullscreen(element) {
-            const iframe = element.querySelector("iframe");
-
-            // If fullscreen is not enabled, enable it
-            if (!element.classList.contains("fullscreen")) {
-                element.classList.add("fullscreen");
-            } else {
-                // If fullscreen is enabled, reset to normal view
-                element.classList.remove("fullscreen");
-            }
+        // Function to open the Retro Bowl game in fullscreen
+        function openGame() {
+            // Hide the main content
+            document.querySelector(".content").style.display = "none";
+            
+            // Show the iframe container (Retro Bowl fullscreen)
+            document.getElementById("gameContainer").style.display = "block";
         }
+        
+        // Optional: Add an event listener to allow closing the fullscreen game
+        document.getElementById("gameIframe").addEventListener("click", function() {
+            // Hide the iframe container
+            document.getElementById("gameContainer").style.display = "none";
+
+            // Show the main content again
+            document.querySelector(".content").style.display = "block";
+        });
     </script>
 </body>
 </html>
