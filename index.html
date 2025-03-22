@@ -124,11 +124,14 @@
         <h3>Popular Games</h3>
         <div class="popular-games">
             <!-- Retro Bowl image -->
-            <div class="game" onclick="openGame()">
+            <div class="game" onclick="openGame('https://retro-bowl-six.vercel.app')">
                 <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/d98547374c4129bf441b754d495e41aa.png" alt="Retro Bowl College"/>
             </div>
+            <!-- Basketball Stars image -->
+            <div class="game" onclick="openGame('https://zBasketBallStarts.html')">
+                <img src="https://cdn.now.gg/apps-content/com.nowgg.h5.pub483.app51022/game-tiles/basketball-stars.jpg" alt="Play Basketball Stars Online"/>
+            </div>
             <!-- Placeholder for other games -->
-            <div class="game"></div>
             <div class="game"></div>
             <div class="game"></div>
             <div class="game"></div>
@@ -138,13 +141,16 @@
     <!-- Fullscreen container for Retro Bowl -->
     <div class="iframe-container" id="gameContainer">
         <button class="close-button" onclick="closeGame()">Close</button>
-        <iframe src="https://retro-bowl-six.vercel.app" title="Retro Bowl Game" id="gameIframe"></iframe>
+        <iframe src="" id="gameIframe"></iframe>
     </div>
 
     <script>
-        // Function to open the Retro Bowl game in fullscreen
-        function openGame() {
-            // Show the iframe container (Retro Bowl fullscreen)
+        // Function to open the game in fullscreen
+        function openGame(url) {
+            // Set the iframe source to the passed URL
+            document.getElementById("gameIframe").src = url;
+
+            // Show the iframe container (fullscreen game)
             document.getElementById("gameContainer").style.display = "block";
 
             // Hide the main content
