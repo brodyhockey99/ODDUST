@@ -84,18 +84,35 @@
             z-index: 9999; /* Ensure it goes on top */
         }
 
+        /* This ensures the iframe container is visible when the game is opened */
         .iframe-container {
-            position: relative;
             display: none;
             width: 100%;
             height: 100vh;
-            z-index: 1000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9998;
         }
 
         .iframe-container iframe {
             width: 100%;
             height: 100%;
             border: none;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 9999;
         }
     </style>
 </head>
@@ -116,31 +133,32 @@
             <div class="game"></div>
             <div class="game"></div>
         </div>
+    </div>
 
-        <!-- Fullscreen container for Retro Bowl -->
-        <div class="iframe-container" id="gameContainer">
-            <iframe src="https://retro-bowl-six.vercel.app" title="Retro Bowl Game" id="gameIframe"></iframe>
-        </div>
+    <!-- Fullscreen container for Retro Bowl -->
+    <div class="iframe-container" id="gameContainer">
+        <button class="close-button" onclick="closeGame()">Close</button>
+        <iframe src="https://retro-bowl-six.vercel.app" title="Retro Bowl Game" id="gameIframe"></iframe>
     </div>
 
     <script>
         // Function to open the Retro Bowl game in fullscreen
         function openGame() {
-            // Hide the main content
-            document.querySelector(".content").style.display = "none";
-            
             // Show the iframe container (Retro Bowl fullscreen)
             document.getElementById("gameContainer").style.display = "block";
+
+            // Hide the main content
+            document.querySelector(".content").style.display = "none";
         }
-        
-        // Optional: Add an event listener to allow closing the fullscreen game
-        document.getElementById("gameIframe").addEventListener("click", function() {
+
+        // Function to close the fullscreen game
+        function closeGame() {
             // Hide the iframe container
             document.getElementById("gameContainer").style.display = "none";
 
             // Show the main content again
             document.querySelector(".content").style.display = "block";
-        });
+        }
     </script>
 </body>
 </html>
