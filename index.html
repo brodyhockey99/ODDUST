@@ -8,7 +8,6 @@
     <meta name="author" content="Your Name">
     <title>ODDUST</title>
     <style>
-        /* Make sure the page takes full height and has a black background */
         html, body {
             height: 100%;
             margin: 0;
@@ -71,49 +70,6 @@
             }
         }
 
-        /* Fullscreen styling */
-        .fullscreen iframe {
-            width: 100vw;
-            height: 100vh;
-            border: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 9999; /* Ensure it goes on top */
-        }
-
-        /* This ensures the iframe container is visible when the game is opened */
-        .iframe-container {
-            display: none;
-            width: 100%;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 9998;
-        }
-
-        .iframe-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(255, 0, 0, 0.6);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 9999;
-        }
     </style>
 </head>
 <body>
@@ -132,38 +88,21 @@
                 <img src="https://cdn.now.gg/apps-content/com.nowgg.h5.pub483.app51022/game-tiles/basketball-stars.jpg" alt="Play Basketball Stars Online"/>
             </div>
             <!-- Placeholder for other games -->
-            <div class="game"></div>
-            <div class="game"></div>
-            <div class="game"></div>
+            <div class="game" onclick="openGame('https://example-game-link.com')">
+                <img src="https://via.placeholder.com/150" alt="Game Placeholder"/>
+            </div>
+            <div class="game" onclick="openGame('https://example-game-link.com')">
+                <img src="https://via.placeholder.com/150" alt="Game Placeholder"/>
+            </div>
+            <div class="game" onclick="openGame('https://example-game-link.com')">
+                <img src="https://via.placeholder.com/150" alt="Game Placeholder"/>
+            </div>
         </div>
     </div>
 
-    <!-- Fullscreen container for games -->
-    <div class="iframe-container" id="gameContainer">
-        <button class="close-button" onclick="closeGame()">Close</button>
-        <iframe src="" id="gameIframe"></iframe>
-    </div>
-
     <script>
-        // Function to open the game in fullscreen
         function openGame(url) {
-            // Set the iframe source to the passed URL
-            document.getElementById("gameIframe").src = url;
-
-            // Show the iframe container (fullscreen game)
-            document.getElementById("gameContainer").style.display = "block";
-
-            // Hide the main content
-            document.querySelector(".content").style.display = "none";
-        }
-
-        // Function to close the fullscreen game
-        function closeGame() {
-            // Hide the iframe container
-            document.getElementById("gameContainer").style.display = "none";
-
-            // Show the main content again
-            document.querySelector(".content").style.display = "block";
+            window.open(url, '_blank');
         }
     </script>
 </body>
