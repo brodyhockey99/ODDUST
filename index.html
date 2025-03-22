@@ -1,174 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ODDUST, a site for cool games.">
-    <meta name="keywords" content="games, ODDUST, popular games">
-    <meta name="author" content="Your Name">
-    <title>ODDUST</title>
+<html class="no-js" lang="zxx">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Basketball Legends | slope-game.github.io</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="/cleancss/amp.css">
+    <link rel="stylesheet" href="/css/preload.css">
+    <meta name="google-site-verification" content="2rHJ7VRPQvWn6LSai_6iqg6l9tapR7KgqtMHnSXioOQ" />
+    <meta name="robots" content="noindex,nofollow" />
     <style>
-        /* Make sure the page takes full height and has a black background */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            background-color: black; /* Set background color to black */
+      .icon-menu{
+        position: fixed;
+        top: 7px;
+        left: 20px;
+        z-index: 6000;
+        background: #fff;
+        justify-content: center;
+        padding: 9px 8px 9px 9px;
+        border-radius: 5px;
+        display: flex;
+        border: solid 2px #cf1f1f;
+      }
+      .close-icon{
+        display: none;
+      }
+      .close-icon img{
+        transform: rotate(180deg);
+      }
+      @media only screen and (min-width: 0px) and (max-width: 1278px){
+        .close-icon{
+          display: block;
         }
-
-        .header {
-            background: rgba(64, 35, 74, 0.8);
-            padding: 15px;
-            text-align: left;
-            font-size: 20px;
-            font-weight: bold;
-            padding-left: 20px;
-        }
-
-        .content {
-            padding: 20px;
-        }
-
-        h3 {
-            margin-top: 0;
-        }
-
-        .popular-games {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .game {
-            background: rgba(255, 255, 255, 0.8);
-            width: 100px;
-            height: 100px;
-            border-radius: 10px;
-            transition: transform 0.3s;
-            overflow: hidden; /* Hide overflow if the iframe is larger */
-            cursor: pointer; /* Make the game container clickable */
-            text-align: center;
-        }
-
-        .game img {
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
-        .game:hover {
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 600px) {
-            .popular-games {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* Fullscreen styling */
-        .fullscreen iframe {
-            width: 100vw;
-            height: 100vh;
-            border: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 9999; /* Ensure it goes on top */
-        }
-
-        /* This ensures the iframe container is visible when the game is opened */
-        .iframe-container {
-            display: none;
-            width: 100%;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 9998;
-        }
-
-        .iframe-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(255, 0, 0, 0.6);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 9999;
-        }
+      }
     </style>
-</head>
-<body>
-    <div class="header">
-        ODDUST
-    </div>
-    <div class="content">
-        <h3>Popular Games</h3>
-        <div class="popular-games">
-            <!-- Retro Bowl image -->
-            <div class="game" onclick="openGame('https://retro-bowl-six.vercel.app')">
-                <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/d98547374c4129bf441b754d495e41aa.png" alt="Retro Bowl College"/>
+  </head>
+  <body>
+    <div class="body-bg" style="background-image:url('/img/body-bg.jpg')">
+      <div class="icon-menu" onclick="showMenu(this)">
+        <img src="/img/menu-toggle.svg" alt="#">
+      </div>
+      <div class="nftmax-smenu">
+        <div class="admin-menu">
+          <div class="logo">
+            <a href="/">
+              <img class="nftmax-logo__main" src="/img/slope-logo.png" alt="Slope Game Logo">
+            </a>
+            <div class="nftmax__sicon close-icon" onclick="hideMenu()">
+              <img src="img/menu-toggle.svg" alt="#">
             </div>
-            <!-- Basketball Stars image -->
-            <div class="game" onclick="openGame('https://advanced-channeler.02.gz-associates.com/?t=tmm-basketball-stars')">
-                <img src="https://cdn.now.gg/apps-content/com.nowgg.h5.pub483.app51022/game-tiles/basketball-stars.jpg" alt="Play Basketball Stars Online"/>
-            </div>
-            <!-- 2 Minute Football image -->
-            <div class="game" onclick="openGame('https://3kh0.github.io/projects/2-minute-football/index.html')">
-                <img src="https://play-lh.googleusercontent.com/d85e0zdQXoq5lGiX57EXp2wbjWDPpIsWnycOnJZsSHrVY-48ySHltcq2b5lsp9Vmmw=w600-h300-pc0xffffff-pd" alt="2 Minute Football - Apps on Google Play"/>
-            </div>
-            <!-- Placeholder for other games -->
-            <div class="game"></div>
-            <div class="game"></div>
-            <div class="game"></div>
-        </div>
-    </div>
+          </div>
+          <div class="admin-menu__one">
+            <h4 class="admin-menu__title nftmax-scolor">Games</h4>
+            <div class="menu-bar">
+              <ul class="menu-bar__one">
+                <li class="active">
+                  <a href="/list.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">All Games</span>
+                    </span>
+                  </a>
+                  <a href="/rolling-ball-3d.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">Rolling Ball 3D</span>
+                    </span>
+                  </a>
+                  <a href="/iron-snout.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">Iron Snout</span>
+                    </span>
+                  </a>
+                  <a href="/rolling-sky.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">Rolling Sky</span>
+                    </span>
+                  </a>
 
-    <!-- Fullscreen container for games -->
-    <div class="iframe-container" id="gameContainer">
-        <button class="close-button" onclick="closeGame()">Close</button>
-        <iframe src="" id="gameIframe"></iframe>
-    </div>
-
-    <script>
-        // Function to open the game in fullscreen
-        function openGame(url) {
-            // Set the iframe source to the passed URL
-            document.getElementById("gameIframe").src = url;
-
-            // Show the iframe container (fullscreen game)
-            document.getElementById("gameContainer").style.display = "block";
-
-            // Hide the main content
-            document.querySelector(".content").style.display = "none";
-        }
-
-        // Function to close the fullscreen game
-        function closeGame() {
-            // Hide the iframe container
-            document.getElementById("gameContainer").style.display = "none";
-
-            // Show the main content again
-            document.querySelector(".content").style.display = "block";
-        }
-    </script>
-</body>
-</html>
+                  <a href="/fireboy-and-watergirl-1.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">Fireboy and Watergirl</span>
+                    </span>
+                  </a>
+                  <a href="/vex7.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">Vex 7</span>
+                    </span>
+                  </a>
+                  <a href="/bitlife-life-simulator.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">BitLife</span>
+                    </span>
+                  </a>
+                  <a href="/among-us.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">Among Us</span>
+                    </span>
+                  </a>
+                  <a href="/cookie-clicker.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">Cookie Clicker</span>
+                    </span>
+                  </a>
+                  <a href="/eggy-car.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__name">Eggy Car</span>
+                    </span>
+                  </a>
+                  <a href="/smash-karts.html">
+                    <span class="menu-bar__text">
+                      <span class="menu-bar__
